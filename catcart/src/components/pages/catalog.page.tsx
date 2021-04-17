@@ -1,30 +1,135 @@
 import styled from 'styled-components';
-import {Product} from '../products/product.component';
+import { Product } from 'components/products/product.component';
+import { Logo } from 'components/visual/logo.component';
+import { Nav } from 'components/control/nav.component';
+import { IProduct } from 'local-types/product.type';
 
-export default function CatalogPage(){
+export default function CatalogPage() : JSX.Element{
 
     const ProductDisplay = styled.div`
         display: grid;
         justify-content: space-between;
         align-items: center;
         grid-template-columns: repeat(3, 20rem);
-        grid-auto-rows: 15rem;
+        grid-auto-rows: auto;
         grid-gap: 1.2rem;
         border: 2.5px gray inset;
+        border-radius: 10px;
         background-color: white;
         margin: 0.5rem;
-        overflow: scroll;
-    `
+        margin-top: 0;
+        padding: 2em;
+        box-shadow: 0px 0px 7px rgb(34, 34, 34);
+        overflow: auto;
 
+        @media screen and (max-width: 1180px) {
+            grid-template-columns: repeat(2, 20rem);
+            justify-content: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            grid-template-columns: 20rem;
+            justify-content: center;
+        } 
+    `;
+
+    const GridContainer = styled.div`
+        padding: 3em;
+    `;
+
+    const products : IProduct[] = [{
+        name: 'Аппарат для конвективной ИВЛ стационарный Zisline MV200 / MV300',
+        price: 80000,
+        description: "Универсальный  аппарат  для  проведения  ИВЛ  с  непрерыв-ным  мониторингом  газообмена  и  оценкой  метаболизма  в  отделениях реанимации, хирургии и интенсивной терапии, а также при транспортировке по клинике.",
+        image: '/img/zisline.png'
+    },
+    {
+       name: 'Аппарат искусственной вентиляции легких высокочастотный струйный ИВЛ-ВЧ/100-«ЗисЛайн» (по Б.Д.Зислину)',
+        price: 80000,
+        description: "Универсальный  аппарат  для  проведения  ИВЛ  с  непрерыв-ным  мониторингом  газообмена  и  оценкой  метаболизма  в  отделениях реанимации, хирургии и интенсивной терапии, а также при транспортировке по клинике.",
+        image: '/img/zisline.png'
+    },
+    {
+       name: 'Анестезиологические / операционные мониторы МПР6-03',
+        price: 80000,
+        description: "Универсальный  аппарат  для  проведения  ИВЛ  с  непрерыв-ным  мониторингом  газообмена  и  оценкой  метаболизма  в  отделениях реанимации, хирургии и интенсивной терапии, а также при транспортировке по клинике.",
+        image: '/img/zisline.png' 
+    },
+    {
+       name: 'Транспортные / портативные мониторы МПР6-03',
+        price: 80000,
+        description: "Универсальный  аппарат  для  проведения  ИВЛ  с  непрерыв-ным  мониторингом  газообмена  и  оценкой  метаболизма  в  отделениях реанимации, хирургии и интенсивной терапии, а также при транспортировке по клинике.",
+        image: '/img/zisline.png'
+    },
+    {
+       name: 'Монитор оценки глубины анестезии МГА-06',
+        price: 80000,
+        description: "Универсальный  аппарат  для  проведения  ИВЛ  с  непрерыв-ным  мониторингом  газообмена  и  оценкой  метаболизма  в  отделениях реанимации, хирургии и интенсивной терапии, а также при транспортировке по клинике.",
+        image: '/img/anesthesia.png' 
+    },
+    {
+       name: 'Модульные мониторы пациента BeneView RUS',
+        price: 80000,
+        description: "Универсальный  аппарат  для  проведения  ИВЛ  с  непрерыв-ным  мониторингом  газообмена  и  оценкой  метаболизма  в  отделениях реанимации, хирургии и интенсивной терапии, а также при транспортировке по клинике.",
+        image: '/img/BeneView.png' 
+    },
+    {
+       name: 'Центральная мониторная станция HYPERVISOR VI',
+        price: 80000,
+        description: "Универсальный  аппарат  для  проведения  ИВЛ  с  непрерыв-ным  мониторингом  газообмена  и  оценкой  метаболизма  в  отделениях реанимации, хирургии и интенсивной терапии, а также при транспортировке по клинике.",
+        image: '/img/zisline.png' 
+    },
+    
+    {
+       name: 'Измеритель инвазивный портативный электронный автономный центрального венозного давления и других низких давлений в различных полостях организма человека ИиНД 500/75',
+        price: 80000,
+        description: "Универсальный  аппарат  для  проведения  ИВЛ  с  непрерыв-ным  мониторингом  газообмена  и  оценкой  метаболизма  в  отделениях реанимации, хирургии и интенсивной терапии, а также при транспортировке по клинике.",
+        image: '/img/zisline.png' 
+    },
+    {
+       name: 'Систентрализованного мониторинга СЦМ «Тритон»',
+        price: 80000,
+        description: "Универсальный  аппарат  для  проведения  ИВЛ  с  непрерыв-ным  мониторингом  газообмена  и  оценкой  метаболизма  в  отделениях реанимации, хирургии и интенсивной терапии, а также при транспортировке по клинике.",
+        image: '/img/zisline.png' 
+    },
+    {
+       name: 'Аппарат для конвективной ИВЛ стационарный Zisline MV200 / MV300',
+        price: 80000,
+        description: "Универсальный  аппарат  для  проведения  ИВЛ  с  непрерыв-ным  мониторингом  газообмена  и  оценкой  метаболизма  в  отделениях реанимации, хирургии и интенсивной терапии, а также при транспортировке по клинике.",
+        image: '/img/zisline.png' 
+    },
+    {
+       name: 'Пyльсоксиметр ОП-31.1 ', 
+        price: 80000,
+        description: "Универсальный  аппарат  для  проведения  ИВЛ  с  непрерыв-ным  мониторингом  газообмена  и  оценкой  метаболизма  в  отделениях реанимации, хирургии и интенсивной терапии, а также при транспортировке по клинике.",
+        image: '/img/OP311.png' 
+    },
+    {
+       name: 'Аппарат для конвективной ИВЛ стационарный Zisline MV200 / MV300',
+        price: 80000,
+        description: "Универсальный  аппарат  для  проведения  ИВЛ  с  непрерыв-ным  мониторингом  газообмена  и  оценкой  метаболизма  в  отделениях реанимации, хирургии и интенсивной терапии, а также при транспортировке по клинике.",
+        image: '/img/zisline.png' 
+    },
+    {
+       name: 'Аппарат для конвективной ИВЛ стационарный Zisline MV200 / MV300',
+        price: 80000,
+        description: "Универсальный  аппарат  для  проведения  ИВЛ  с  непрерыв-ным  мониторингом  газообмена  и  оценкой  метаболизма  в  отделениях реанимации, хирургии и интенсивной терапии, а также при транспортировке по клинике.",
+        image: '/img/zisline.png' 
+    }
+    ];
+
+    const product_array = products.map(product => <Product product={product} key={product.name}/>);
+
+    
     return (
-        <div className="grid-container">
-            <ProductDisplay>
-                <Product price={3241}/>
-                <Product price={41} name='socks'/>
-                <Product price={4013}/>
-                <Product price={13}/>
-            </ProductDisplay>
-        </div>
-
-    )
+        <>
+            <Nav/>
+            <Logo/>
+            <GridContainer>
+                <ProductDisplay>
+                    {product_array}
+                </ProductDisplay>
+            </GridContainer>
+        </>
+    );
 }
