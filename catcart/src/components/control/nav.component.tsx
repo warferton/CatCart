@@ -1,4 +1,4 @@
-import { CartButton } from 'components/control/cart-button.component'
+import { CartButton } from 'components/catalog-page/visual/cart-button.component'
 import styled from 'styled-components';
 
 export function Nav(){

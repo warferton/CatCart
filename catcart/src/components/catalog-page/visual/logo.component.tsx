@@ -5,9 +5,9 @@ export function Logo(){
     const logo_text = 'Product Shop';
 
     const LogoContainer = styled.div`
-        padding: 3em;
+        padding-top: 12em;
+        top: -12em;
         position: sticky;
-        top: -6em;
         max-width: 30em;
         display: flex;
         justify-content: center;
@@ -15,8 +15,7 @@ export function Logo(){
 
         @media screen and (max-width: 660px) {
             position: fixed;
-            top: -6em;
-            left: -2em;
+            left: 1em;
             overflow: hidden;
         }
     `;
@@ -30,6 +29,7 @@ export function Logo(){
         text-shadow: 0px 2px 8px #ADCCDDAA;     
         border-radius: 3px;
         padding: 0.1em;
+        margin: 0;
         @media screen and (max-width: 660px) {
             tex-overflow: clip;
             text-wrap: nowrap;
