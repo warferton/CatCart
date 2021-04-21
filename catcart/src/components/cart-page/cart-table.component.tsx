@@ -5,7 +5,7 @@ import CartContext from 'contexts/cart-context';
 
 
 const ItemControl = styled.div`
-    margin: 2em;
+    margin: 1em;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -14,11 +14,10 @@ const ItemControl = styled.div`
 `;
 
 const ItemWindow = styled.div`
-    height: 20em;
+    height: 100%;
     overflow: scroll;
     display: flex;
     flex-direction: column;
-    border-collapse: collapse
 `;
 
 const TableContainer = styled.div`
@@ -72,6 +71,13 @@ export function CartTable(){
         setTotalPrice(sum);
     }, [context]);
 
+    const handleBuy = () =>{
+        const total_quantity = context.cartContents.length;
+        //clear cart
+        context.setCartContents([]);
+        alert(`Bought ${ total_quantity } items.`)
+    }
+
     const cart_items = context.cartContents.map(item => 
         <CartItem item ={ item }/>
     );
@@ -84,7 +90,7 @@ export function CartTable(){
                 </ItemWindow>
                 <ProceedPayment>
                     <strong>Total: { total_price }$</strong>
-                    <BuyButton onClick={()=> alert(`Bought ${ 4 } items.`)}>Buy</BuyButton>
+                    <BuyButton onClick={()=> handleBuy()}>Buy</BuyButton>
                 </ProceedPayment>
             </TableContainer>
         </ItemControl>

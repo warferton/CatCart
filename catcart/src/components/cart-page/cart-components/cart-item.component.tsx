@@ -10,7 +10,7 @@ interface ICartItemProps{
 }
 
 const CartItemContainer = styled.div`
-    padding: 0.2em;
+    padding: 0.5em;
     height: 4em;
     border-bottom: 1px black solid;
     display: flex;
@@ -19,13 +19,20 @@ const CartItemContainer = styled.div`
 `;
 
 const ItemName = styled.p`
-    display: block;
+    display: inline;
     max-height: 3em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     margin: 0;
     width: 100%;
+
+    @media screen and (max-width:885px){
+        width: 12em;
+    }
+     @media screen and (max-width:360px){
+        width: 5em;
+    }
 `;
 
 const ItemControl = styled.div`
